@@ -36,9 +36,3 @@
 - XAMPP (MySQL & phpMyAdmin)
 - Git
 - IDE (Eclipse, IntelliJ, etc.)
-
-### Steps
-
-1. **Clone the Repository**
-   git clone https://github.com/your-username/airline-reservation-system.git
-   cd airline-reservation-system
