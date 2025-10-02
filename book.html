@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking</title>
+    <style>
+        @import url('http://fonts.google.com.css2?family=popping');
+        .astonish {
+            visibility: visible;
+        }
+
+        @media (min-width: 768px) {
+            .astonish {
+                visibility: hidden;
+            }
+
+            .animated {
+                visibility: visible;
+            }
+
+        }
+
+        body {
+            
+            font-family: Arial, sans-serif;
+            margin: 4.4%;
+            display: flex;
+            background: -webkit-linear-gradient(left, #022d6d, #e6ebfd) ;
+        }
+
+        .container {
+            align-self: center;
+            background-color: #ffffff69;
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            left: 5%;
+            margin-bottom: 60%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: whitesmoke;
+        }
+
+        .form-row input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            flex: 1;
+        }
+
+        .input-group input,
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .shuffle-button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            height: 42px;
+            width: 42px;
+            position: relative;
+            top: 10px;
+            ;
+        }
+
+        .shuffle-button:hover {
+            background-color: white;
+            bottom: 5%;
+            position: relative;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-button {
+            background: #ffffff;
+            color: black;
+            border: none;
+            padding: 9px 30px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            left: 90.7%;
+            position: relative;
+            justify-self: save;
+        }
+
+        .search-button:hover {
+            background-color: #ffffff8a;
+
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-group input {
+            margin-right: 5px;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+        }
+
+        .label-group label {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-row.inline-row {
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-row.inline-row .input-group {
+            flex: 1;
+            color: white;
+        }
+
+        .form-row.inline-row .shuffle-button {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Row 1: Trip type -->
+        <!-- Row 2: Inline arrangement for all fields -->
+        <div class="form-row inline-row">
+            <div class="input-group">
+                <label for="from" color>From</label>
+                <input type="text" id="from">
+            </div>
+            <button class="shuffle-button">⇄</button>
+            <div class="input-group">
+                <label for="to">To</label>
+                <input type="text" id="to">
+            </div>
+            <div class="input-group">
+                <label for="departure">Departure</label>
+                <input type="date" id="departure">
+            </div>
+            <div class=" input-group">
+                <label for="return">Return</label>
+                <input type="date" id="return">
+            </div>
+            <div class="input-group">
+                <label for="travelers">Class</label>
+                <select id="travelers">
+                    <option> Economy</option>
+                    <option> Premium Economy</option>
+                    <option> Business</option>
+                </select>
+            </div>
+        </div>
+        <button class="search-button" button>Search</button>
+    </div>
+    </div>
+</body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking</title>
+    <style>
+        /* .body {
+            margin: ;
+            padding: 0;
+        } */
+
+        .container.result {
+            position: absolute;
+            margin-top: 50%;
+            margin-left: 59px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-style: italic;
+            padding: 200px 30px;
+            align-self: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container result">
+        <div class="scroll-container">
+            <h1></h1>
+        </div>
+    </div>
+</body>
+
+</html>

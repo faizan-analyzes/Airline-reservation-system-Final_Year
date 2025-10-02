@@ -1,3 +1,4 @@
+<%@ page import = "java.sql.*"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +21,7 @@
         </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="home1.css">
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script defer src="https://rawgit.com/Jesus-E-Rodriguez/cityscapes-landing-page/master/js/astonish.js"></script>
@@ -40,11 +41,10 @@
       <div class="bar3"></div>
      </div>
      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="book.html">Search</a></li>
+        <li><a href="#">Home</a></li>   
         <li><a href="#about">About us</a></li>
         <li><a href="#contact">Coustomer Support</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="login/login.jsp">Login</a></li>
      </ul>
     </div>
    </nav>
@@ -63,7 +63,7 @@
    <main>
     <div class="content-wrapper" id="about">
      <!-- second replaceble image -->
-     <img class="img-absolute" src='/FindFlights/images/book.jpg' alt="City 2">
+     <img class="img-absolute" src='images/book.jpg' alt="City 2">
      <div class="grid">
       <div class="grid-col-sm-10 grid-col-md-6 astonish" data-animation="fadeInLeft">
        <h2 class="section-title">About FindFlights</h2>
@@ -97,7 +97,7 @@
        </div>
        <div class="grid-col-sm-12 grid-col-md-6">
         <div class="form-group">
-         <input type="text" name="lastName" required>
+         <input type="text" name="phone" required>
          <label for="lasttName">Phone:</label>
         </div>
        </div>
@@ -114,9 +114,10 @@
         </div>
        </div>
       </div>
-      <input class="btn btn-outline-teal" type="submit" value="Send">
+      <input class="btn btn-outline-teal" name="send" type="submit" value="Send">
      </form>
     </div>
+
    
     <!-- This is an embedded Google map, this is easily customizable especially if you get a Google API key, this will allow for more customizable features. -->
     <!--<iframe id="map" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d81584.50435706123!2d-80.8378430874413!3d35.23358937843391!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1514142608486" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -141,3 +142,36 @@
    </footer>
 </body>
 </html>
+<%
+try{    
+        Connection con = null;
+        Class.forName("com.mysql.jdbc.Driver");
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FindFlights","root","");
+        PreparedStatement psmt = null; 
+
+        String send = request.getParameter("send");
+        if(send!=null)
+        {
+            String name = request.getParameter("firstName");
+            String phone = request.getParameter("phone");
+            String email = request.getParameter("email");
+            String message = request.getParameter("message");
+
+            psmt = con.prepareStatement("insert into complaints values(?,?,?,?)");
+            psmt.setString(1,name);
+            psmt.setString(2,phone);
+            psmt.setString(3,email);
+            psmt.setString(4,message);
+
+            int cnt = psmt.executeUpdate();
+            if(cnt>=1)
+                out.println("<script> alert('Complaint raised') </script>");
+            else
+                out.println("<script> alert('Complaints not raised') </script>");
+        }
+   }
+   catch(Exception e)
+   {
+    out.println(""+e);
+   }
+%>
