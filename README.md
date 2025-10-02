@@ -4,18 +4,6 @@
 
 ---
 
-## 📌 Table of Contents
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Screenshots](#screenshots)
-- [Installation](#installation)
-- [Database Setup](#database-setup)
-- [Usage](#usage)
-- [Folder Structure](#folder-structure)
-- [Contributing](#contributing)
-- [License](#license)
-
----
 
 ## 🚀 Features
 - User Registration & Login
